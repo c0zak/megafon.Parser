@@ -1,2 +1,2 @@
 # megafon.Parser
-Simple parser from business accounts of Megafon
+Simple parser from business accaunts of Megafon
