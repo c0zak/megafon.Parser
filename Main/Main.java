@@ -14,7 +14,6 @@ public class Main {
     private static Config config;
 
     public static void main(String[] args) {
-        System.out.println("MEGAVNO!!!!");
         if (args.length>=2)
             config = new Config(args[0], args[1]);
         else
@@ -23,8 +22,8 @@ public class Main {
         Map<String, String> logopass = config.getLogopass();
         config.openLog();
         for (String arg : args) {
-            if (arg.contains("nolog"))
-                config.LOG = false;
+            if (arg.contains("nolog"))  
+                config.LOG = false;     //all output will be written in console
         }
         ArrayList<HttpsMegafonClient> httpsMegafonClients = new ArrayList<>(logopass.size());
         for (String login : logopass.keySet()) {
@@ -47,7 +46,7 @@ public class Main {
         }
         companies = temp;
 
-        SQL innerBase = new SQL("ipadress", "baseName", "login", "password", false);
+        SQL innerBase = new SQL("ipadress", "baseName", "login", "password", false);    //last boolean means CP1251 charset in sql
         CompanyToSQL innerRecords = new CompanyToSQL(companies, innerBase);
 
         
