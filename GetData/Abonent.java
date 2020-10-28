@@ -12,7 +12,7 @@ public class Abonent {
     private final String total;
     private final String subscribeFee;
     private final String otherFee;
-    private boolean tempLogicVar;
+    private boolean tempLogicVar;  //Sometimes you need a boolean variable as a flag
 
     public Abonent(String phoneNumber, String fio, String total, String subscribeFee, Company company) {
         this.phoneNumber = phoneNumber;
