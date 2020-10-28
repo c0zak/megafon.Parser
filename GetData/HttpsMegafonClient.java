@@ -13,7 +13,7 @@ import java.util.zip.GZIPInputStream;
 
 public class HttpsMegafonClient {
     private HttpsURLConnection client;
-    private boolean isCorrect;
+    private boolean isCorrect;      //flag for checking, that auth was successful
     private String login;
     private String id;
     private String cookie;
@@ -64,7 +64,8 @@ public class HttpsMegafonClient {
             setWorkingCookie();
 
             BufferedInputStream incomingBytes = new BufferedInputStream(client.getInputStream());
-            ByteBuffer incoming = StandardCharsets.UTF_8.encode(Charset.forName("windows-1251").decode(ByteBuffer.wrap(incomingBytes.readAllBytes())));
+            //megafon never heard of utf-8
+            ByteBuffer incoming = StandardCharsets.UTF_8.encode(Charset.forName("windows-1251").decode(ByteBuffer.wrap(incomingBytes.readAllBytes()))); 
             incomingBytes.close();
             client.disconnect();
 
