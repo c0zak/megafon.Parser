@@ -21,7 +21,7 @@ public class Config {
 
     private Map<String, String> createLogopass (String logopassPath) {
         try {
-            Map<String, String> result = new HashMap<>(15);
+            Map<String, String> result = new HashMap<>(15);     //This capacity is convenient for my business quest
             BufferedReader logopassReader = new BufferedReader(new FileReader(logopassPath));
             String inline;
             while ((inline = logopassReader.readLine()) != null) {
@@ -45,7 +45,7 @@ public class Config {
 
     public void openLog () {
         try {
-            new File(logPath).mkdirs();
+            new File(logPath).mkdirs();     //Log always must be in log directory))
             log = new BufferedWriter(new FileWriter(logPath + "/log", true));
             LOG = true;
             logAdd("Program was started at " + new Date());
