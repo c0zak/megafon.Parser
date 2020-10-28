@@ -1,5 +1,5 @@
-package PutData;
-
+package PutData;    //This code is specifically for my workbases. You can use this, but I think it would be nice for you to write a convenient one for you :)
+                    //In addition, it is in great need of reworking, since it was written before refactoring the main working part.
 import GetData.Abonent;
 import GetData.Company;
 import Main.Main;
@@ -167,9 +167,9 @@ public class CompanyToSQL {
             String date = format.format(new Date());
             for (Map.Entry<Abonent, String> abonentsEntry : abonentsWithAccountNumber.entrySet()) {
                 String query =
-                        "UPDATE `rsi`.`tmc_simCards` SET `rashod_f` = '" + abonentsEntry.getKey().getTotal() + "'," +
+                        "UPDATE `ourBase`.`ourTable` SET `rashod_f` = '" + abonentsEntry.getKey().getTotal() + "'," +
                                 "`updateDate` = '" + date + "'," +
-                                "`actualCompany` = '" + abonentsEntry.getValue() + "' WHERE `tmc_simCards`.`number` = '" +
+                                "`actualCompany` = '" + abonentsEntry.getValue() + "' WHERE `ourTable`.`number` = '" +
                                 abonentsEntry.getKey().getPhoneNumber() + "';";
                 base.doQuery(query);
             }
