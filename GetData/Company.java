@@ -12,9 +12,9 @@ public class Company {
     private String companyCosts;
     private String subscribeCosts;
     private String otherCosts;
-    private boolean tempLogicVar;
+    private boolean tempLogicVar;   //Sometimes you need a boolean variable as a flag
     private final Set<Abonent> abonents;
-    private boolean isCorrect;
+    private boolean isCorrect;      //Stability of megafon services... not exist :( And we need to check, that data really was readed
 
     public Company(ArrayList<String> companyInfo, ArrayList<String> companyAbonents) {
         abonents = new HashSet<>();
@@ -74,7 +74,7 @@ public class Company {
         return abonents;
     }
 
-    private void parserCompanyAbonents (ArrayList<String> incomingLines) {
+    private void parserCompanyAbonents (ArrayList<String> incomingLines) {      //Create the abonents pool, parsing csv file
         int countOfRecords = 0;
         for (String incomingLine : incomingLines) {
             incomingLine = incomingLine.replaceAll(",", ".");
@@ -94,8 +94,8 @@ public class Company {
         Main.logAdd("Read " + countOfRecords + " abonents from company " + companyName + " at: " + new Date());
     }
 
-    private void parserCompanyInfo (ArrayList<String> incomingLines) {
-        ArrayList<String> parsing = new ArrayList<>(1300);
+    private void parserCompanyInfo (ArrayList<String> incomingLines) {      //Fill company info by parsing. If you need, you can grab more helpful info,
+        ArrayList<String> parsing = new ArrayList<>(1300);                  //but in this case i need little bit)
         for (String incomingLine : incomingLines) {
             parsing.addAll(Arrays.asList(incomingLine.split(">")));
         }
